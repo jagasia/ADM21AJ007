@@ -422,3 +422,196 @@ public class ExceptionDemo2 {
 	}
 
 }
+--------------------------------------------------------------------
+what is the need for collections!
+	the limitations of arrays. that is where the need for collections
+
+	arrays are fixed length
+		int arr[]=new int[10];
+		arr[0]=20;
+		arr[9]=100;
+
+		arr=new int[20];			// is it possible to change the size of array?
+		//here, arr.length is now 20		(but contents are erased. means, a new array is created)
+
+	arrays are fixed length. They cannot grow as and when required.
+
+	public int[] findPrimeNumbers(int input[])
+	{
+		//write your code here
+		int result[]=new int[100];
+		int j=0;
+		for(int i : input)
+		{
+			//check if i is a prime number? then add it to the result array
+			//if yes,
+			result[j++]=i;
+		}
+	}	
+
+
+
+what is the problem we are facing here?
+	we don't know how many prime numbers are present in the given array
+
+	
+
+		int result[]=new int[100];		this is the problem. we cannot predict the size of req
+
+Collections
+	are data structures which can grow or shrink as and when required
+
+	we can add elements and then the collection can grow
+	we can remove elements and then the collection shrink
+
+Collections are classes or interfaces defined in java.util package in java language
+	example:
+		LinkedList
+		HashSet
+		TreeMap
+
+	etc are some of the collection classes.
+EaCH class has a different approach in the way the elements are added or accessed or searched or sorted
+
+in collections, there are some categories:
+1) List
+2) Set
+3) Map	(is not a collection but an application of collection)
+
+in fact, 
+	List, Set and Map are interfaces	present in java.util
+
+List interface is implemented by few classes
+	LinkedList
+	ArrayList	(most popularly used. similar to arrays, they have index, they are contigeous but can grow or shrink dynamically)
+
+		we can add elements without having a fixed length. we dont even need to know the size initially
+
+Set
+	HashSet
+	TreeSet
+	LinkedHashSet
+
+Map
+	HashMap
+	TreeMap
+	LinkedHashMap
+
+lets see the clear difference between these categories
+
+List
+	maintains the order in which the elements are added
+
+Set
+	popularly called as unordered collection because, the order in which we add may not be maintained
+	HashSet	- the order of the elements is based on hashCode method 
+	TreeSet	- the elements are maintained in sorted manner	(usually ascending order)
+	LinkedHashSet	- the elements are maintained in the order in which they are added (similar to List)
+
+
+Map
+	2 dimensional		(key - value) pair
+
+	while adding entries, we provide 		key, value
+	while retrieving, we provide key, and get value
+
+
+
+	
+Demo1:
+
+		ArrayList<Integer> marks=new ArrayList<>();
+		marks.add(90);
+		marks.add(100);
+		marks.add(50);
+		marks.add(60);
+		//we can add lot of elements but no need to specify the size
+		System.out.println(marks);
+
+output:
+	[90, 100, 50, 60]
+
+notice that the order of the elements is same as the order in which they are added
+
+
+Demo2:
+		HashSet<Integer> marks=new HashSet<>();
+		marks.add(90);
+		marks.add(100);
+		marks.add(50);
+		marks.add(60);
+		//we can add lot of elements but no need to specirfy the size
+		System.out.println(marks);
+
+output:
+	[50, 100, 90, 60]
+
+marks.remove(50);
+
+
+1) ArrayList		has index
+2) LinkedList
+3) HashSet
+4) TreeSet
+5) LinkedHashSet
+6) HashMap
+7) TreeMap
+8) LinkedHashMap
+
+
+
+Iterator
+	hasNext()		returns true if anymore element is present to iterator.	false otherwise
+	next()			returns the element present next
+	remove()		removes the current element
+
+
+since there is only next method, we can traverse in the forward direction only.
+
+List category collections can be traversed in reverse order also using "ListIterator"
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class Main1 {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> marks=new ArrayList<>();
+		marks.add(90);
+		marks.add(100);
+		marks.add(50);
+		marks.add(60);
+		//we can add lot of elements but no need to specirfy the size
+//		for(Integer x:marks)
+//			System.out.println(x);
+		
+//		for(int i=0;i<marks.size();i++)
+//			System.out.println(marks.get(i));
+		
+		//use iterators for accessing all the elements
+//		Iterator<Integer> it = marks.iterator();
+		ListIterator<Integer> it = marks.listIterator();
+		while(it.hasNext())
+		{
+			Integer x = it.next();
+			System.out.println(x +" is the current value");
+		}
+		System.out.println("Now, traversing in reverse direction");
+		while(it.hasPrevious())
+		{
+			Integer x = it.previous();
+			System.out.println(x);
+		}
+	}
+
+}
+
+
+ListIterators work only for List category class like
+	ArrayList
+	LinkedList
+
+they will not work for Set category at all. In fact, set is rigid. once the elements are added, their order cannot be changed. They can be assigned to List and sorting or changing order is possible
+
+
