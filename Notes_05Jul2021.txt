@@ -1,0 +1,148 @@
+where are we now (in angular)?
+
+1) create an angular project
+	chose	CSS
+	chose 	no routing
+	in last time, i chose routing "yes"
+2) create a component
+3) plug the component anywhere (for example in app component)
+4) Binding
+	property binding		[]
+	event binding			()
+	two way data binding		[()]			template driven forms
+
+	for two way data binding	[(ngModel)]	we need to
+		import "FormsModule" in 	app.module.ts
+		"name" is very important
+		<input type=text name="id" [(ngModel)]="name" />	
+5) Reactive Forms module
+	we import "ReactiveFormsModule" in 	app.module.ts
+
+In reactive forms module,
+	1) we declare a form group object		(userForm)
+	2) inject FormBuilder via constructor
+		constructor(private fb:FormBuilder)
+		{
+			this.userForm=this.fb.group({
+				id:[],
+				username:[]
+			});
+		}
+
+	3) in html
+		<form [formGroup]="userForm">			this userForm is declared in .ts file
+		<input type=text formControlName="id" />
+
+to display all airlines here, as a table, i need to access the REST API using URL
+
+
+
+
+https://api.instantwebtools.net/v1/airlines
+
+
+in post man, you know how to access a get method
+
+1) we need HttpClientModule to be imported in angular project		app.module.ts
+	HttpClient
+
+import { HttpClientModule } from '@angular/common/http';
+
+	HttpClientModule
+
+
+2) any external world access should be done by "service" class
+	i am going to create a service now
+
+		ng g s airline
+
+
+3) in airline.service.ts
+	inject HttpClient object to the constructor
+
+
+4) readAllAirlines()
+	GET
+5) findAirlineById()
+	GET
+
+	 fnSelect(id:number)
+  {
+    this.as.findAirlineById(id).subscribe((data)=>{
+      //i am going to patch this object into the FORM
+      this.airlineForm.patchValue(data);
+    });
+  }
+
+6) addAirline()
+	POST
+
+	all the service methods are going to return Observable		(async)
+	so we need to subscribe()		that accepts a callback function
+
+	
+
+7) inject the service to the constructor of the airline component
+	so that we can call the service methods in airline component
+	
+
+
+angular for loop
+	can be used in html code itself
+
+
+{"id":25002,"name":"Kingfisher Airways III","country":"India","logo":"http://1.bp.blogspot.com/-2laBwEcCaeE/UmsvDiEQjQI/AAAAAAAAAAA/CTCOuthXIlM/s1600/Kingfisher_Airlines_Logo.jpg","slogan":"From India By Jag","head_quaters":"Bengaluru, Karnataka","website":"http://flykingfisher.com/","established":"2008"}
+
+
+{"id":8,"name":"Thai Airways","country":"Thailand","logo":"https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Thai_Airways_Logo.svg/200px-Thai_Airways_Logo.svg.png","slogan":"Smooth as Silk / I Fly THAI","head_quaters":"Jom Phol Subdistrict, Chatuchak, Bangkok, Thailand","website":"www.thaiairways.com","established":"1960"}
+
+
+=====================================================================
+A component
+	app component	has become parent component when we added "airline", "branch" components as child components
+
+Harish has created a login component
+I have created app component
+	i am going to plug in login component inside app component
+
+	Now, Harish (who created login component) has given a title. "Login Form"
+but as you are using this login component, you dont want that title.
+
+Input:
+------
+	Parent component gives input to the child component
+
+Output:
+-------
+	Harish has created login component
+	he has 
+		user name:.............
+		password:..................
+			Login 				button
+
+	harish should emit an event (LoginEvent) when login button is clicked
+
+		
+
+
+
+spring boot rest api
+	branch
+
+
+that rest api will be accessed angular reactive form
+
+
+
+Access to XMLHttpRequest at 'http://localhost:8080/branch' from origin 'http://localhost:4200' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+
+CORS
+	Cross Origin Resource Sharing
+
+our spring boot rest api runs in 8080 port
+our angular project runs in 4200 port
+
+
+Spring rest api should allow other applications to access from cross origin
+	use		@CrossOrigin
