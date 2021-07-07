@@ -1,0 +1,78 @@
+Validations
+	custom
+image upload
+
+
+TekStac
+	Hands on Angular
+
+
+1) vs code is installed
+2) node js is installed
+3) node --version
+	v15.5.0
+4) npm --v
+	7.4.3
+5) npm install -g @angular/cli
+6) ng --version
+	11.1.0
+7) ng new first-project --routing --style=css
+8) ng serve -o
+9) localhost:4200
+	taken screenshot
+
+
+
+NO CODING REQUIRED
+
+
+
+one.ts
+
+	tsc one.ts
+create one.js
+
+to run one.js
+	node one.js
+		this will run one.js
+
+
+
+console.log("");
+
+
+what is pipe?
+			{{ employeeForm.value	|	json}}
+
+here, value returns the object of employee form.
+that object is transformed into json string using "json" pipe
+
+similar to that pipe
+there are lot pipes which are very useful
+
+
+
+custom pipes
+				name='rama';
+{{ name | uppercase }}
+
+				RAMA
+
+
+custom pipe
+	i am going to create a pipe called "heading"
+	if you give text, it will be displayed as a heading bold, center in red color
+
+how to create a pipe?
+	1) create a class that is decorated by @Pipe	and implements PipeTransform interface and override transform method
+		and update the app.module.ts 	in declaration
+	2) ng g pipe heading
+
+
+
+  transform(value: unknown, ...args: unknown[]): unknown {
+    return null;
+  }
+
+
+in typescript language param array is called as Rest parameter
