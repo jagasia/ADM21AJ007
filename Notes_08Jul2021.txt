@@ -1,0 +1,139 @@
+Angular
+	image upload
+	login logout
+	observables			(async prog)	in java threads
+		we can specift time out
+	
+
+<router-outlet name="col1"></router-outlet>
+	what difference do you see in the above router outlet?
+
+
+<router-outlet>
+
+when i route,
+when i click a link		
+in url, i use /branch
+
+	where should that component be displayed?
+
+<router-outlet>
+	is the location where the component will be displayed
+
+if there are multiple router outlets??????????
+	we can specify (in which) router should the component be displayed
+
+
+<a [routerLink]="[{outlets:{'col1':['contact']}}]">Contact Us</a>
+
+<a [routerLink]="['/','branch']" >click here</a>
+
+
+
+
+
+login component can notify menu component???????????
+
+
+menu component should be notified whenever a change occurs in login status
+	notify??			subscribe()		
+
+	whenever i subscribe a service, a change will be notified to all who subscribed
+
+	this is where we use observable (which is not http client)
+
+
+
+life cycle of angular component
+	init()		ngOnInit()		executes only once in the life time of a component.
+	
+implements OnInit, OnChanges, DoCheck
+
+	ngOnChange
+	ngDoCheck
+
+
+
+
+  checkLoginStatus()
+  {    
+    // alert('check login statyus')
+    const myObservable=new Observable(observer=>{
+      setTimeout(()=>{
+        var status='Login';
+        var loggedUserName=localStorage.getItem("loggedUserName");
+        // alert(loggedUserName)
+        if(loggedUserName!=null)
+        {
+          status='Logout';
+          // alert('changing to Logout');
+        } 
+        observer.next(status);
+      },100);
+    });
+    return myObservable;
+  }
+
+
+
+
+
+if login is successful,
+	we create an entry in localStorage
+if logged out,
+	we remove that entry in localStorage
+
+
+-------------------------------------------------
+File upload
+	<input type="file" (change)="fnChange()" />
+
+
+NOT WHEN WE SUBMIT THE FORM OR WHEN WE CLICK BUTTON TO SUBMIT
+When we select the file itself, we need to capture the file info in a variable OR patch it to the file field of reactive form
+
+
+
+
+
+File data type
+file : File
+
+
+
+-----------------
+we are not going to send a JSON object to the service 	(when there is a file in the form)
+
+	FormData
+		key-value
+
+in spring boot controller or rest controller
+	RequestParam
+		what is request param?
+			whenever we send data as a form that contains text box or any element
+			or when we send query string		?key=value&key2=value2
+
+
+
+Food
+	id
+	name
+	expiryDate
+	pic
+
+
+
+
+angular project name
+	food-project
+
+
+REST API:-
+entity class
+repository interface
+service class
+controller class
+
+
+app component
+food component
