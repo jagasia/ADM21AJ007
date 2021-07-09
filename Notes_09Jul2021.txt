@@ -1,0 +1,183 @@
+Life cycle methods
+	init
+	change
+	check
+Observable
+	subscribe			rxjs		reactive extension for js
+service
+	http client
+		get
+		post
+		put
+		delete
+
+
+Angular comes in front end
+	what should be the back end?
+
+	if you have a servlet, you cannot use it from angular.
+	servlet is java code (binary)
+
+	if you have a REST API, then we can access it from angular
+		because, REST API is actually RESTful Web service
+
+	any (SOAP/REST) web service can be accessed from any program of any language running in any platform
+		because, REST produces and consumes data in standard format	(text)
+		XML
+		JSON
+			Both XML and JSON are text format data (that has structure or schema)	
+
+	REST APIs can be created using .net also		(not only java)
+	if someone has created .net project REST API, it can be accessed from 
+		angular
+
+learn in remaining portions of stage 3?
+	microservices
+	spring cloud
+	AWS	
+
+
+
+Microsoft
+	Azure
+Google	
+	GCP
+Amazon
+	AWS
+
+
+9-jul-2021
+16-jul-2021
+	KBA		mcq????????
+
+
+all practicals to be learnt first
+after that lot of MCQ mocks to be done
+
+
+
+comparison between monolithic application and microservices
+--------------
+	mono=single
+	
+	single layered application
+
+example:
+	MS Excel
+
+	it provides
+		UI
+		logic
+		data storage
+
+	all the three services are provided by one process		(running instance of a program is process)
+
+1) Presentation layer			User Interface		Front End
+2) Business logic layer			Formula, validations, calculations, computations
+3) Data layer				storage, retrieval, data mining
+
+any enterprise application software has these 3 layers
+
+if all these 3 layers are provided by a single process, then it is monolithic application
+
+sometimes, MS Access also seen as a monolithic application. 
+	bcos 
+		FORM		for input output
+		Constraints	for logic
+		TABLES		for storage
+
+	but it allows other applications like
+		java programs to access the data
+
+	it supports 2 tier
+	3 tier and even n tier
+
+java program		+		ms access db
+	2 tier
+
+
+important reason why monolithic is not ok
+
+BookMyShow
+	we can make payment
+ICICI 
+
+for payment service, bookmyshow borrow the functionality from icici bank
+
+How icici share their code to bookmyshow??????????????
+	they do not share their entire project
+	they share only few methods 
+
+this is where, the need for spliting our application into multiple layers started
+
+Enterprises Integration
+	Enterprise Application Integration
+
+since you know REST controller
+	you can relate this
+
+	only 1 method is accessed using 1 url
+
+	we are able to allow them to access in micro level
+
+
+
+
+security
+transaction
+
+
+Feign client
+---------------
+
+we have created a REST API already				jar
+	http://localhost:8080/food
+
+Now, this is running in my server means
+	http://upskillit.com/food
+
+you can test it in post man
+
+You have to create a spring boot MVC project
+	and create food.jsp
+
+controller		not REST controller
+
+redirection and all these things are possible in MVC project	war
+
+thymeleaf f/w
+	html 
+
+How will you make MVC project access the REST API?
+	Feign Client
+
+
+
+<form method="GET"
+<form method="POST"
+
+<form method="PUT"
+<form method="DELETE"
+
+WHAT IS THE USE OF PUT AND DELETE USED IN REST API?
+	THEY WORK FINE IN
+		POSTMAN
+		ANGULAR SERVICE
+
+MVC??????????????
+How can i call rest api from controller 
+
+Feign client is used by MVC project to access REST API
+
+MVC project
+
+
+for rest api
+	5000 PORT number is AWS
+	8080 DOES not work in aws when we deploye rest api
+
+what we do?
+	we transform the REST api urls into methods of interface in MVC project
+	so that, mvc controllers, will call the methods rather than urls
+
+first i am going to run the "food rest api" that we created yesterday
