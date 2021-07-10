@@ -1,0 +1,76 @@
+project 1: Rest API
+project 2: MVC project
+	should access REST API using Feign client
+
+
+
+Food 
+	RestController
+		method1		accept only multipart file
+		method2		accept other details
+
+	in controller in mvc
+		addFood
+			method1
+			method2
+
+	another thing we forgot is 
+		
+
+
+
+Entity:
+	Product
+		id
+		name
+		description
+		price
+
+
+
+Feign client
+
+
+
+
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.23</version>
+</dependency>
+
+
+
+
+
+1) REST API
+	take care of all CRUD operations in DB
+2) Angular front end
+
+
+mvc project feign client
+
+
+
+in one project
+they have lot of rest api
+
+product service
+customer service		separater spring boot project with rest controller		different port 
+sales service
+feedback service
+
+
+all these services are registered in eureka server
+we have created 4 micro services
+these services, each will run in different port number
+
+eureka server runs in 8761 port number
+
+
+
+
+
+spring security
+	mysql of our own db
