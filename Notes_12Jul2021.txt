@@ -1,0 +1,164 @@
+Eureka Server and Client
+	Spring cloud
+		eureka server and client
+		feign client			to access a rest api from another spring boot application
+		ribbon
+
+
+
+we are going to register a rest api in eureka server
+
+while creating a spring boot application, we can choose dependencies 
+	eureka server / client
+or 
+	later we can add dependencies in the pom.xml
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+
+
+8761 	is the port on which eureka server runs.		(convention)
+
+application.properties
+	eureka.client.registerWithEureka = false
+	eureka.client.fetchRegistry = false
+	server.port = 8761
+
+@EnableEurekaServer
+
+open browser
+check localhost:8761
+
+---------------------------------
+
+
+IAAS		Infrastructure as a Service
+PAAS		Platform as a service
+SAAS		Software as a service
+
+
+we have create a project (web application)
+so we need to upload the project in a server
+
+so that anybody from anywhere  in the world can access it
+
+localhost means only in this computer
+
+upskillit.com
+something.com
+	this will map to ip address and port number
+
+2 strategies:
+1) we have own servers
+2) we hire servers
+
+own server means, we need huge infrastructure
+
+localhost:8080
+
+in next or another computer
+	we used to enter ip address of that computer
+	and access that web app from other computer also
+
+http://192.168.2.58:8080
+
+in LAN we are able to access within local network
+
+but in server, anybody can access
+
+that makes lot of users to access
+
+due to more number of users, the performance of the application is affected.
+to improve performance, we need to improve the infrastructure
+	by increasing number of processors 
+
+everytime, the demand increases, we are forced to upgrade our infrastructure
+
+on weekends, bookmyshow app is used heavily
+on weekdays, it is very less
+
+on more demand, we buy more infra, means, when demand is less? we cannot downgrade our infra
+
+Scalability
+	is the ability to provision or deprovision based on my necessaity
+
+Own infra is rigid
+	our infra does not change to changing needs
+	and sudden increase of users, cannot be scaled by infra. 
+	It takes time to upgrade infra.		NOT Agile
+	Agility 
+
+We need to find a solution.
+IAAS
+-----
+
+2004	google had a cluster of 40000 processors
+
+searching for a file in our own hard disk took around 4 minutes
+searching an info in google took around 0.004 seconds		(google is not present in our computer)
+
+
+clustered server
+cluster
+	Nodes					node can be compared to CPU
+		PODS			
+			container
+				
+
+Cloud and Database
+
+db
+	storage
+
+cloud
+	storage
+	compute
+	
+
+The three basic types of cloud services are:
+
+Computing			containers			we deploy our rest api, mvc in cloud
+Storage
+Networking
+
+
+private
+public
+hybrid			combination of private and public
+
+
+Cloud Service Providers	
+	
+Microsoft Azure
+Google	GCP
+Amazon 	AWS
+
+
+
+hOW TO deploy our applications in aws?
+1) elastic beanstalk
+	upload .jar or .war
+
+2) ECS and EKS
+	Elastic Container Service
+	Elastic Kubernetes Service
+
+	deploy docker image into the cloud
+
+
+
+
+1) spring boot CLI
+
+
+EC2
+	Elastic Cloud Compute
+
+
+
+Knowledge Based Assessment
+
+	Microservices
+	Cloud
+
