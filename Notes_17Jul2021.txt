@@ -1,0 +1,277 @@
+1) demo on thymealf
+2) angular + spring boot 	how to connect
+3) spring security (how to use in angular)
+	how to persist the logged in user information in angular
+4) Project methodology
+	Agile + Scrum
+5) Gitlab	+	Code repository in Tekstac
+6) Splunk
+7) Cloud
+8) AWS
+
+
+If we use @Controller
+	then we can use HttpSession object
+
+@RequestMapping(....
+public String method(ModelMap model, HttpSession session)
+{}
+
+if we store an object in model then it is available in the view that we redirect to. 
+Will that object be available in all other views?????????
+	NO
+
+When i enter username and password in LOGIN page, i am entering only once. 
+but in every other page, it should be remembered. Until i logout
+
+so, we do not store the user credentials in Model, but  we store in HttpSession 
+session.setAttribute("user",user");				user object contains username, role etc
+
+so in any page, we can obtain the session object and understsand that he/she has logged in.
+
+Welcome ${user.firstName}
+
+This is possible in MVC projects (where we use @Controller)
+
+Rest API do not use @Controller
+	it uses @RestController
+
+In REST API, every method is separate conversation
+	there is no session
+
+every rest api method is independent
+
+So what can we do?
+in Angular, 
+	login page
+	............
+	............
+
+if login is success or not?	hwo will you know?	by calling a rest api method
+	rest api method	
+		returns object of user means, login is successful
+		returns null means, login is failure
+
+	how will i keep this status persistent
+	in angular, we use localStorage to keep an user object as JSON string
+
+	var user=JSON.stringify(data);		user object obtained from rest api
+	localStorage.setItem("user",user);
+
+
+in every component, we first check if localStorage("user") is null or not. If null, then you have not logged in, click here to go to login page.		return. dont process further
+
+
+html code is put inside <div *ngIf="status">		entire page will not be displayed if NOT logged in
+			<div *ngIf="!status">You have not logged in. ple....to login</div>
+
+
+
+
+
+product			medicine
+customer		patient
+sales			treatment
+
+
+student
+course
+
+entity
+	table
+
+@Transient
+SimpleDateFormat sdf;
+
+JSP + controller
+<form action="add">
+
+
+Movie
+	id
+	name
+	language
+	director	
+
+
+
+database
+	tables
+		columns
+		constraints
+
+ORM
+classes in java
+
+movie is a table in mysql
+movie is a class in java
+
+MSA allows you to work independently
+1) Entity class
+2) Repository interface
+3) Service class
+4) Rest Controller
+
+for every table, create a separate project
+THis will be a separate micro service
+
+Previous batch had interview
+
+The interviewer always ask the participant to share their screen
+	asked him/her to run the project
+
+every entity is separate microservice
+
+
+
+
+angular project is huge because of a folder "node_modules"
+our project contains .ts files which cannot be understood by browsers
+so .ts files must be compiled to become .js files (understood by browsers)
+
+ng build
+	this command is used to generate output of project
+	dist folder will be created that contains only htmls and .js files
+
+
+
+MovieMaster
+		MOVIE_MASTER
+
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+	THIS is used to control that strategy
+	MOVIEMASTER will be the name	
+
+
+
+CrossOrigin
+	CORS policy
+		Cross Origin Resource Sharing
+
+
+
+today 
+	team member 1 is going to create 
+		movie module
+		entity, repo, service, controller 
+		test it in postman
+
+
+
+sprint
+	is an unit of work
+	assigned to one POD member
+
+evening you are supposed to finish it
+
+otherwise, this will be called as backlog tomoro morning
+
+
+we dont need to login to GitLab directly to git lab portal
+
+in tekstack we can login to gitlab
+
+
+
+eureka server
+	8671
+every microservice 
+	register itself to eureka server as a client
+
+you will show the interviewer
+	the eureka registry
+
+	what are the services running
+
+
+
+Entity
+	repo
+	ser
+	controller
+
+this is fine for master tables in the db
+
+master table
+	primary key		but there is no foreign key
+	such tables are independent
+
+details/transaction table
+
+Attendance_Details
+Student_Master
+
+there are some tables
+	master tables
+	details tables
+
+Details table
+	has atleast one foreign key
+
+
+Employee 
+Department
+
+EMPLOYEE	DEPARTMENT
+
+a) 1 to 1		agree
+b) 1 to M
+c) M to 1		agree
+
+M to 1
+
+
+
+
+Employee 
+	id
+	name
+	did
+
+Department
+	id
+	name
+	eid	NOT POSSIBLE
+
+whenever a relationship ends with "Many"
+	it will lead to another table 
+
+to prevent that
+	"mappedBy"
+
+Employee
+	id
+	firstName
+	lastName
+	department		Department
+
+
+Department
+	id
+	name
+	employeeList		List<Employee>
+
+	
+
+ddlauto		update			create		drop-create
+
+if table is not found, create it
+if table is found with 3 columns.
+	but our entity class has 4 columns
+	that remaining 1 columns alone will be added to the table
+	it will do updations
+	data /records are not lost
+
+create is rude
+	if table already exists and records are there, 
+	you lose records
+	it will create again destroying existing table
+
+
+
+
+EMployee
+	id		pK
+	department_id	fk
+
+
