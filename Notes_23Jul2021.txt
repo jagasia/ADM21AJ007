@@ -63,3 +63,20 @@ public class EmployeeService
 
 in application.properties
 these info are automatically captured by DataSource bean
+
+
+
+public class Department
+{
+	id
+	name
+	List<Employee> employeeList;
+
+	public List<Employee> getEmployeeList()
+	{
+		//write the code to find all employees by department id	
+	//	creat such method in doa or service and call it here
+	}
+}
+
+
