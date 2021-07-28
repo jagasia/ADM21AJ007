@@ -1,0 +1,38 @@
+if data is present only in html elements, it is difficult to loop
+but the data has come from db table only and is displayed in the form of table
+
+so when checkout button is clicked
+	we can redirect to a page (checkoutcomp)
+		diplaye
+		Make payment
+		it should make a textbox visible	
+		We have sent an otp to your email address xxxxxx@yahoo.com
+		........	submit otp
+		if otp is correct 
+			in .ts we can loop for as my cart items present in the cart as per db
+		store those records in the order table
+
+		
+
+in angular validation
+	call a rest api that 
+		i) sends otp email
+		ii) returns otp back to component
+
+	obtained otp is stored in localstorage
+	and when he click submit otp, we are not going to server. 
+	we have otp in localstorage and 
+		otp typed by the user in text box.		2 way binding, textbox value can be obtained
+	compare both and say
+		"Otp entered is incorrect"
+		"Payment is successful"
+		
+
+
+place order button click will call a rest api
+	controller
+		has a method
+		that will get all items in the cart
+		loop the cart items
+			add them to the order
+
