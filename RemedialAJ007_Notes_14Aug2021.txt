@@ -1,0 +1,157 @@
+Core Java
+
+data types:		There are 8 data types in java
+boolean			1 bit
+byte			8 bits		1 byte
+short			16 bits		2 bytes
+int			32 bits		4 bytes
+long			64 bits		8 bytes
+
+float 			32 bits		4 bytes
+double			64 bits		8 bytes
+
+char			16 bits		2 bytes
+
+These are the 8 primitive data types in java.
+
+Data type means primitive data type only. 
+
+Others are objects. They are called as types (not data types)
+
+String str;			str is a String type.		not String data type
+
+Employee rama;			rama is an Employee type. 	not Employee data type
+
+
+---------------------------------------------------------------------------------------------
+what is meant by for-each loop?
+
+	for(int i=1;i<=10;i++)			definitive loop
+	{
+	}
+
+	1 to 10 is not correct choice for "for-each" loop.
+	The question is not "for loop". it is "for-each" loop.
+
+Ans:
+	For each loop is used to iterate for each element found in a collection (or array)
+
+	int []arr={12,32,34,54,56,67,87,98,91,101};
+
+	for(int x : arr)
+	{
+		//displays each element in the arr
+		System.out.println(x);
+	}
+
+
+----------------------------------------------------------------------------------------
+What is the difference between 
+	break and continue?
+
+	break exits the loop.
+	continue moves to next iteration.
+
+If you ask similarity,
+	both of them ignores the remaining lines below
+
+--------------------------------------------------
+What is the difference between StringBuilder and StringBuffer?
+
+	the only difference between them are that "StringBuffer" is synchronized. But "StringBuilder" is not.
+	Otherwise, all the methods and variables found in StringBuilder are exactly found in StringBuffer also.
+
+
+	Synchronized means, it will not allow multiple threads to access it at a time.
+
+
+-------------------------------------------------------------------------
+what is the difference between static and final?
+	static member of a class does not belong to any particular instance of the class. 
+		class Student
+		{
+			static String collegeName;		//for all object of class, only 1 collegeName
+		}
+
+		all the objects of Student share the same collegeName
+		Student.collegeName="KLN";
+		Student rama=new Student();
+		Student siva=new Student();
+		Student kumar=new Student();
+		
+		all the students have same collegeName
+		rama.collegeName="IIT";
+		System.out.println(siva.collegeName);		//	IIT
+
+
+	final 
+		variable		CONSTANT
+		method			cannot be overriden
+		class			cannot be inherited
+
+		that means we cannot change it
+
+-------------------------------
+final, finally, finalize
+	
+
+	final 
+		variable		CONSTANT
+		method			cannot be overriden
+		class			cannot be inherited
+
+		that means we cannot change it
+
+	finally
+		used with 'try' block
+		try-finally
+		try-catch-finally
+		try-catch-catch-finally
+
+		finally block is executed whenever try block is executed. No matter, exception occurred or not, 			handled or not
+
+	finalize
+		is a method that can be used to do closing tasks like we do in destructor in c++.
+		finalize is executed by garbage collector
+
+------------------------------------------------------------------
+OOPS
+	Inheritance
+	Encapsulation
+	Polymorphism
+	Abstraction
+
+	Overloading
+	Overriding
+	Abstract class vs Interfaces
+	
+----------------------------------------------------
+Java 8 features
+	Lambda
+	Stream API
+------------------------------------------------
+Java Collections
+	List
+		ArrayList
+		LinkedList
+	Set
+		HashSet
+		TreeSet
+		LinkedHashSet
+	Map
+		HashMap
+		TreeMap
+		LinkedHashMap
+
+	legacy classes
+		Vector
+		Hashtable
+
+Difference between Hashtable and HashMap
+		Hashtable is synchronized.	But HashMap is not synchronized.
+		both are key value pair
+
+		EntrySet in HashMap
+			key, value
+
+		how will you loop a map?
